@@ -29,7 +29,7 @@ FinBERT는 3가지 레이블에 대한 softmax output을 출력한다. <br>
 - Negative (부정)
 - Neutral (중립)
 
-**성능** <br>
+**[성능]** <br>
 Kaggle의 Financial Sentiment Analysis 데이터셋을 활용하여 FinBERT 모델의 추론을 수행한 결과, **정확도는 0.76, F1 Score는 0.74**로 나타났다. 결과를 상세하게 분석한 결과, 사용된 데이터셋의 라벨링이 부정확하여 상당한 양의 Negative 데이터가 실제로는 Neutral로 잘못 판별된 것으로 확인되었다. <br>
 
 ![image](https://github.com/kingodjerry/Sentiment_Analysis/assets/143167244/a29b6b35-0870-4eae-814a-f7f8838875f1)
