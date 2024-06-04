@@ -29,8 +29,15 @@ FinBERT는 3가지 레이블에 대한 softmax output을 출력한다. <br>
 - Negative (부정)
 - Neutral (중립)
 
+**성능** <br>
+Kaggle의 Financial Sentiment Analysis 데이터셋을 활용하여 FinBERT 모델의 추론을 수행한 결과, **정확도는 0.76, F1 Score는 0.74**로 나타났다. 결과를 상세하게 분석한 결과, 사용된 데이터셋의 라벨링이 부정확하여 상당한 양의 Negative 데이터가 실제로는 Neutral로 잘못 판별된 것으로 확인되었다. <br>
+
+![image](https://github.com/kingodjerry/Sentiment_Analysis/assets/143167244/a29b6b35-0870-4eae-814a-f7f8838875f1)
+
+
+
 ## 알고리즘 구현
-**1. CNN 최신 경제 뉴스 URL 크롤링과 뉴스, 기사 제목 크롤링** <br>
+**1. 데이터셋 준비 : CNN 최신 경제 뉴스 URL 크롤링과 뉴스, 기사 제목 크롤링** <br>
 &ensp;일반 경제 뉴스를 감정분석하려고 했으나, 어떤 것에 대한 부정적인 판단인지 해석할 기준이 명확하지 않아 '테마주'를 선정하여 해당 테마주에 대한 감정분석을 시행하기로 하였다. <br>
 **2. Huggingface의 pipeline을 이용해서 finBERT model Load** <br>
 ```
@@ -48,7 +55,7 @@ from transformers import AutoTokenizer, AutoModelForSequenceClassification
 tokenizer = AutoTokenizer.from_pretrained("ProsusAI/finbert")
 model = AutoModelForSequenceClassification.from_pretrained("ProsusAI/finbert")
 ```
-**3. 데이터셋 준비 및 FinBERT Inference** <br>
+**3. 데이터셋 준비 및 감정분석 실행** <br>
 ```
 import pandas as pd
 
@@ -79,12 +86,13 @@ df['Predict'] = sentiments
 # 결과 확인
 print(df)
 ```
-4. 
+**4. 결과 시각화**
 
 
 ## 결과 및 한계
+&ensp; 테마주 감정분석 결과와 주식 가격 간의 상관관계이다. Neutral을 제외하고 봤을 때, positive가 우세하면 주가는 강세, negative가 우세하면 주가가 약세를 보이는 결과가 도출되었다. 즉, 감정분석 결과가 실제 테마주의 최근 3일 동안의 주식 동향과 일치하는 것으로 확인되었다.  <br>
 <img src="./output_img/1.jpg">
 <img src="./output_img/2.jpg">
 <img src="./output_img/3.jpg">
 <img src="./output_img/4.jpg">
-&ensp;
+&ensp; 결과를 보면 실제 투자 지표로 사용할 수 있을 것 같지만, 해당 프로젝트에는 라벨링의 한계점이 존재한다. 뉴스 기사가 어느 관점에서 긍정적이고 부정적인지에 대한 명확한 근거와 기준이 존재하지 않는다. 즉, 라벨링의 기준이 객관적이지 못하고 주관적이라는 한계점을 발견하였다. <br> 
