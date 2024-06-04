@@ -83,5 +83,8 @@ print(df)
 
 
 ## 결과 및 한계
-
+<img src="./output_img/1.jpg">
+<img src="./output_img/2.jpg">
+<img src="./output_img/3.jpg">
+<img src="./output_img/4.jpg">
 &ensp;
