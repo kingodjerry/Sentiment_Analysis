@@ -98,7 +98,7 @@ print(df)
 <img src="./output_img/4.jpg">
 &ensp; 결과를 보면 실제 투자 지표로 사용할 수 있을 것 같지만, 해당 프로젝트에는 라벨링의 한계점이 존재한다. 뉴스 기사가 어느 관점에서 긍정적이고 부정적인지에 대한 명확한 근거와 기준이 존재하지 않는다. 즉, 라벨링의 기준이 객관적이지 못하고 주관적이라는 한계점을 발견하였다. 나아가, OpenAI의 '모델스펙(ModelSpec)'처럼 AI에는 행동 규칙과 윤리적인 룰이 존재해야 한다는 것을 깨달았다. <br>
 
-### + OpenAI의 ModelSpec
+### + [OpenAI의 ModelSpec](https://openai.com/index/introducing-the-model-spec/)
 모델 스펙은 OpenAI의 AI 모델들(API 제공 모델)과 ChatGPT가 어떻게 행동해야 하는지를 규정한 문서이다. AI 모델 행동에 대한 명확하고 윤리적인 기준을 제시하며, 개발 과정의 투명성을 확보하여 대중의 신뢰를 얻을 수 있게 되었다. 모델 스펙은 다음과 같은 세 부분으로 구성된다. <br> 
 - 목표 Objectives : AI의 가치 지향점 제시
 - 규칙 Rules : 윤리적, 법적 준수사항
